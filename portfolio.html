@@ -9,27 +9,43 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <style>
         * { font-family: 'Inter', sans-serif; }
-        :root { --primary: #6366f1; --primary-dark: #4f46e5; --accent: #22d3ee; --dark: #0f172a; --darker: #020617; }
+        :root { --primary: #7c3aed; --primary-dark: #6d28d9; --accent-pink: #f472b6; --accent-amber: #f59e0b; --accent-teal: #14b8a6; --accent-cyan: #06b6d4; --dark: #0f172a; --darker: #0c0c1d; }
         body { background: var(--darker); }
-        .gradient-text { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); transition: all 0.3s ease; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4); }
-        .grid-bg { background-image: linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px); background-size: 50px 50px; }
+        .gradient-text { background: linear-gradient(135deg, #7c3aed, #f472b6, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glass { background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .btn-primary { background: linear-gradient(135deg, #7c3aed, #f472b6); transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .btn-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s ease; }
+        .btn-primary:hover::before { left: 100%; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.4), 0 0 60px rgba(244, 114, 182, 0.15); }
+        .grid-bg { background-image: linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px); background-size: 50px 50px; }
         .case-card { transition: all 0.4s ease; }
-        .case-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2); }
+        .case-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2); }
+        .card-accent-violet { border-left: 3px solid #7c3aed; }
+        .card-accent-teal { border-left: 3px solid #14b8a6; }
+        .card-accent-amber { border-left: 3px solid #f59e0b; }
+        .card-accent-pink { border-left: 3px solid #f472b6; }
+        .stat-violet { color: #a78bfa; }
+        .stat-pink { color: #f472b6; }
+        .stat-amber { color: #fbbf24; }
+        .stat-teal { color: #2dd4bf; }
+        @keyframes blob1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(30px, -50px) scale(1.1); } }
+        body::before, body::after { content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; z-index: 0; pointer-events: none; }
+        body::before { width: 500px; height: 500px; top: -5%; left: -5%; background: linear-gradient(135deg, #7c3aed, #f472b6); animation: blob1 20s ease-in-out infinite; }
+        body::after { width: 400px; height: 400px; bottom: -5%; right: -5%; background: linear-gradient(135deg, #14b8a6, #f59e0b); animation: blob1 25s ease-in-out infinite reverse; }
+        .navbar-warm { border-bottom: 1px solid transparent; border-image: linear-gradient(90deg, #7c3aed, #f472b6, #f59e0b) 1; }
     </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="grid-bg">
-    <nav class="fixed w-full z-50 py-4 bg-dark/80 backdrop-blur-lg border-b border-white/10">
+    <nav class="fixed w-full z-50 py-4 bg-[#0c0c1d]/80 backdrop-blur-lg navbar-warm">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <a href="index.html" class="text-2xl font-bold"><span class="gradient-text">Zubair</span><span class="text-white">SEO</span></a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
                 <a href="services.html" class="text-gray-400 hover:text-white">Services</a>
-                <a href="portfolio.html" class="text-indigo-400">Portfolio</a>
-                <a href="testimonials.html" class="text-gray-400 hover:text-white">Testimonials</a>
+                <a href="portfolio.html" class="text-pink-400">Portfolio</a>
+                    <a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a>
+                    <a href="testimonials.html" class="text-gray-400 hover:text-white">Testimonials</a>
                 <a href="index.html#contact" class="btn-primary px-6 py-2 rounded-full text-white font-semibold">Get Started</a>
             </div>
         </div>
@@ -37,8 +53,8 @@
 
     <section class="pt-32 pb-20 relative overflow-hidden">
         <div class="absolute inset-0">
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl"></div>
         </div>
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
             <h1 class="text-4xl md:text-6xl font-black text-white mb-6">My <span class="gradient-text">Portfolio</span></h1>
@@ -50,64 +66,64 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Case Study 1 -->
-                <div class="case-card glass rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center relative">
+                <div class="case-card glass rounded-3xl overflow-hidden card-accent-violet">
+                    <div class="h-48 bg-gradient-to-br from-violet-600 to-pink-600 flex items-center justify-center relative">
                         <i data-lucide="trending-up" class="w-20 h-20 text-white/50"></i>
                         <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-500/80 text-white text-sm font-bold">+340%</div>
                     </div>
                     <div class="p-6">
-                        <div class="text-indigo-400 text-sm font-semibold mb-2">E-commerce</div>
+                        <div class="text-violet-400 text-sm font-semibold mb-2">E-commerce</div>
                         <h3 class="text-xl font-bold text-white mb-2">TechGadgets Store</h3>
                         <p class="text-gray-400 text-sm mb-4">Increased organic traffic by 340% through strategic guest posting and high-DA backlink building.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 rounded bg-indigo-500/20 text-indigo-400 text-xs">Guest Posts</span>
-                            <span class="px-2 py-1 rounded bg-cyan-500/20 text-cyan-400 text-xs">Link Building</span>
+                            <span class="px-2 py-1 rounded bg-violet-500/20 text-violet-400 text-xs">Guest Posts</span>
+                            <span class="px-2 py-1 rounded bg-teal-500/20 text-teal-400 text-xs">Link Building</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Case Study 2 -->
-                <div class="case-card glass rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-cyan-600 to-blue-700 flex items-center justify-center relative">
+                <div class="case-card glass rounded-3xl overflow-hidden card-accent-teal">
+                    <div class="h-48 bg-gradient-to-br from-teal-600 to-cyan-600 flex items-center justify-center relative">
                         <i data-lucide="target" class="w-20 h-20 text-white/50"></i>
                         <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-500/80 text-white text-sm font-bold">#1</div>
                     </div>
                     <div class="p-6">
-                        <div class="text-indigo-400 text-sm font-semibold mb-2">SaaS</div>
+                        <div class="text-teal-400 text-sm font-semibold mb-2">SaaS</div>
                         <h3 class="text-xl font-bold text-white mb-2">CloudSync Platform</h3>
                         <p class="text-gray-400 text-sm mb-4">Took client from page 5 to #1 position for competitive keywords in 6 months.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs">Technical SEO</span>
-                            <span class="px-2 py-1 rounded bg-orange-500/20 text-orange-400 text-xs">Content</span>
+                            <span class="px-2 py-1 rounded bg-amber-500/20 text-amber-400 text-xs">Content</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Case Study 3 -->
-                <div class="case-card glass rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-orange-600 to-red-700 flex items-center justify-center relative">
+                <div class="case-card glass rounded-3xl overflow-hidden card-accent-amber">
+                    <div class="h-48 bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center relative">
                         <i data-lucide="link" class="w-20 h-20 text-white/50"></i>
                         <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-500/80 text-white text-sm font-bold">250+</div>
                     </div>
                     <div class="p-6">
-                        <div class="text-indigo-400 text-sm font-semibold mb-2">Finance</div>
+                        <div class="text-amber-400 text-sm font-semibold mb-2">Finance</div>
                         <h3 class="text-xl font-bold text-white mb-2">FinanceHub</h3>
                         <p class="text-gray-400 text-sm mb-4">Built 250+ high-authority backlinks from finance niche, DA 50+ websites.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 rounded bg-indigo-500/20 text-indigo-400 text-xs">Backlinks</span>
+                            <span class="px-2 py-1 rounded bg-violet-500/20 text-violet-400 text-xs">Backlinks</span>
                             <span class="px-2 py-1 rounded bg-pink-500/20 text-pink-400 text-xs">Outreach</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Case Study 4 -->
-                <div class="case-card glass rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center relative">
+                <div class="case-card glass rounded-3xl overflow-hidden card-accent-pink">
+                    <div class="h-48 bg-gradient-to-br from-pink-600 to-rose-600 flex items-center justify-center relative">
                         <i data-lucide="shopping-cart" class="w-20 h-20 text-white/50"></i>
                         <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-500/80 text-white text-sm font-bold">+180%</div>
                     </div>
                     <div class="p-6">
-                        <div class="text-indigo-400 text-sm font-semibold mb-2">E-commerce</div>
+                        <div class="text-pink-400 text-sm font-semibold mb-2">E-commerce</div>
                         <h3 class="text-xl font-bold text-white mb-2">HomeDecor Plus</h3>
                         <p class="text-gray-400 text-sm mb-4">Doubled organic sales in 4 months through competitor analysis and targeted link building.</p>
                         <div class="flex flex-wrap gap-2">
@@ -118,34 +134,34 @@
                 </div>
 
                 <!-- Case Study 5 -->
-                <div class="case-card glass rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-pink-600 to-rose-700 flex items-center justify-center relative">
+                <div class="case-card glass rounded-3xl overflow-hidden card-accent-teal">
+                    <div class="h-48 bg-gradient-to-br from-teal-600 to-emerald-600 flex items-center justify-center relative">
                         <i data-lucide="heart-pulse" class="w-20 h-20 text-white/50"></i>
                         <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-500/80 text-white text-sm font-bold">DA 30→65</div>
                     </div>
                     <div class="p-6">
-                        <div class="text-indigo-400 text-sm font-semibold mb-2">Healthcare</div>
+                        <div class="text-teal-400 text-sm font-semibold mb-2">Healthcare</div>
                         <h3 class="text-xl font-bold text-white mb-2">MediCare Plus</h3>
                         <p class="text-gray-400 text-sm mb-4">Increased domain authority from 30 to 65 in 8 months with comprehensive SEO strategy.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-2 py-1 rounded bg-pink-500/20 text-pink-400 text-xs">Full SEO</span>
-                            <span class="px-2 py-1 rounded bg-indigo-500/20 text-indigo-400 text-xs">Authority</span>
+                            <span class="px-2 py-1 rounded bg-violet-500/20 text-violet-400 text-xs">Authority</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Case Study 6 -->
-                <div class="case-card glass rounded-3xl overflow-hidden">
-                    <div class="h-48 bg-gradient-to-br from-violet-600 to-purple-700 flex items-center justify-center relative">
+                <div class="case-card glass rounded-3xl overflow-hidden card-accent-violet">
+                    <div class="h-48 bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center relative">
                         <i data-lucide="graduation-cap" class="w-20 h-20 text-white/50"></i>
                         <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-500/80 text-white text-sm font-bold">+420%</div>
                     </div>
                     <div class="p-6">
-                        <div class="text-indigo-400 text-sm font-semibold mb-2">Education</div>
+                        <div class="text-violet-400 text-sm font-semibold mb-2">Education</div>
                         <h3 class="text-xl font-bold text-white mb-2">LearnOnline Academy</h3>
                         <p class="text-gray-400 text-sm mb-4">420% increase in organic enrollments through content marketing and strategic backlinks.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 rounded bg-violet-500/20 text-violet-400 text-xs">Content</span>
+                            <span class="px-2 py-1 rounded bg-amber-500/20 text-amber-400 text-xs">Content</span>
                             <span class="px-2 py-1 rounded bg-orange-500/20 text-orange-400 text-xs">Marketing</span>
                         </div>
                     </div>
@@ -161,20 +177,20 @@
                 <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Results <span class="gradient-text">That Matter</span></h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="glass rounded-2xl p-6 text-center">
-                    <div class="text-4xl font-black gradient-text mb-2">500+</div>
+                <div class="glass rounded-2xl p-6 text-center card-accent-violet">
+                    <div class="text-4xl font-black stat-violet mb-2">500+</div>
                     <div class="text-gray-400">Projects Completed</div>
                 </div>
-                <div class="glass rounded-2xl p-6 text-center">
-                    <div class="text-4xl font-black gradient-text mb-2">50+</div>
+                <div class="glass rounded-2xl p-6 text-center card-accent-pink">
+                    <div class="text-4xl font-black stat-pink mb-2">50+</div>
                     <div class="text-gray-400">Happy Clients</div>
                 </div>
-                <div class="glass rounded-2xl p-6 text-center">
-                    <div class="text-4xl font-black gradient-text mb-2">13+</div>
+                <div class="glass rounded-2xl p-6 text-center card-accent-amber">
+                    <div class="text-4xl font-black stat-amber mb-2">13+</div>
                     <div class="text-gray-400">Years Experience</div>
                 </div>
-                <div class="glass rounded-2xl p-6 text-center">
-                    <div class="text-4xl font-black gradient-text mb-2">98%</div>
+                <div class="glass rounded-2xl p-6 text-center card-accent-teal">
+                    <div class="text-4xl font-black stat-teal mb-2">98%</div>
                     <div class="text-gray-400">Success Rate</div>
                 </div>
             </div>
@@ -200,12 +216,13 @@
                     <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
                     <a href="services.html" class="text-gray-400 hover:text-white">Services</a>
                     <a href="portfolio.html" class="text-gray-400 hover:text-white">Portfolio</a>
+                    <a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a>
                     <a href="testimonials.html" class="text-gray-400 hover:text-white">Testimonials</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="https://www.linkedin.com/in/zubair-ahmed-seo-expert/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-indigo-500 transition-colors"><i class="fab fa-linkedin-in text-white"></i></a>
-                    <a href="https://x.com/unlockmobilez" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-indigo-500 transition-colors"><svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                    <a href="https://www.facebook.com/Zubair.dkarain/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-indigo-500 transition-colors"><i class="fab fa-facebook-f text-white"></i></a>
+                    <a href="https://www.linkedin.com/in/zubair-ahmed-seo-expert/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-violet-500 transition-colors"><i class="fab fa-linkedin-in text-white"></i></a>
+                    <a href="https://x.com/unlockmobilez" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-pink-500 transition-colors"><svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                    <a href="https://www.facebook.com/Zubair.dkarain/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 transition-colors"><i class="fab fa-facebook-f text-white"></i></a>
                 </div>
             </div>
             <div class="text-center mt-4 text-gray-500 text-sm">© 2026 Zubair Ahmed SEO Agency. All rights reserved.</div>
@@ -214,3 +231,4 @@
     <script>lucide.createIcons();</script>
 </body>
 </html>
+
