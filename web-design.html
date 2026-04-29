@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Service | Zubair Ahmed - Professional Web Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        :root { --darker: #0c0c1d; }
+        body { background: var(--darker); }
+        .gradient-text { background: linear-gradient(135deg, #7c3aed, #f472b6, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glass { background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .btn-primary { background: linear-gradient(135deg, #7c3aed, #f472b6); transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.4); }
+        .btn-outline { border: 2px solid #7c3aed; transition: all 0.3s ease; }
+        .btn-outline:hover { background: rgba(124, 58, 237, 0.2); transform: translateY(-3px); }
+        .grid-bg { background-image: linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px); background-size: 50px 50px; }
+        .card-glow { transition: all 0.4s ease; }
+        .card-glow:hover { transform: translateY(-10px); box-shadow: 0 0 60px rgba(124, 58, 237, 0.4); }
+        @keyframes blob1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(30px, -50px) scale(1.1); } }
+        body::before, body::after { content: ''; position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; z-index: 0; pointer-events: none; }
+        body::before { width: 600px; height: 600px; top: -10%; left: -5%; background: linear-gradient(135deg, #7c3aed, #f472b6); animation: blob1 20s ease-in-out infinite; }
+        body::after { width: 500px; height: 500px; bottom: -10%; right: -5%; background: linear-gradient(135deg, #14b8a6, #06b6d4, #7c3aed); animation: blob1 25s ease-in-out infinite reverse; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="grid-bg relative">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-4 bg-[#0c0c1d]/90 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-bold"><span class="gradient-text">Zubair</span><span class="text-white">SEO</span></a>
+            <div class="hidden lg:flex items-center gap-2">
+                <a href="index.html" class="px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all">Home</a>
+                <a href="services.html" class="px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all">SEO Services</a>
+                <a href="web-development-services.html" class="px-4 py-2 rounded-lg text-pink-400 bg-pink-500/10 hover:bg-pink-500/20 transition-all font-semibold">Web Development</a>
+                <a href="portfolio.html" class="px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all">Portfolio</a>
+                <a href="testimonials.html" class="px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all">Testimonials</a>
+                <a href="index.html#contact" class="btn-primary px-6 py-2.5 rounded-full text-white font-semibold ml-4">Contact Me</a>
+            </div>
+            <button class="lg:hidden text-white text-2xl" onclick="toggleMobile()">☰</button>
+        </div>
+        <div id="mobileMenu" class="lg:hidden hidden bg-[#0c0c1d]/95 backdrop-blur-xl border-t border-white/10 p-6">
+            <div class="flex flex-col gap-4">
+                <a href="index.html" class="text-white py-2">Home</a>
+                <a href="services.html" class="text-white py-2">SEO Services</a>
+                <a href="web-development-services.html" class="text-pink-400 py-2 font-semibold">Web Development</a>
+                <a href="portfolio.html" class="text-white py-2">Portfolio</a>
+                <a href="testimonials.html" class="text-white py-2">Testimonials</a>
+                <a href="index.html#contact" class="btn-primary px-6 py-3 rounded-full text-white font-semibold text-center mt-2">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-40 pb-24 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: -3s;"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="mb-6 reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-pink-400 border border-pink-500/30">
+                    <i data-lucide="palette" class="w-4 h-4"></i>
+                    Web Design Service
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 reveal">
+                Professional <span class="gradient-text">Web Design</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 reveal">
+                Beautiful, modern, and user-friendly websites that make lasting impressions. I design with purpose, converting visitors into customers.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 reveal">
+                <a href="index.html#contact" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg inline-flex items-center justify-center gap-2">
+                    Start Your Project <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="web-development-services.html" class="btn-outline px-8 py-4 rounded-full text-white font-bold text-lg inline-flex items-center justify-center gap-2 border-2 border-violet-500">
+                    View All Services <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4">Design That <span class="gradient-text">Converts</span></h2>
+                <p class="text-gray-400 text-xl">Every design element is strategically placed to engage visitors and drive action</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass rounded-3xl p-8 text-center card-glow reveal">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500 to-violet-500 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="target" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Conversion Focus</h3>
+                    <p class="text-gray-400">Design optimized to turn visitors into leads and customers</p>
+                </div>
+                
+                <div class="glass rounded-3xl p-8 text-center card-glow reveal">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="eye" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Visual Excellence</h3>
+                    <p class="text-gray-400">Stunning aesthetics that capture attention and build trust</p>
+                </div>
+                
+                <div class="glass rounded-3xl p-8 text-center card-glow reveal">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="users" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">User Experience</h3>
+                    <p class="text-gray-400">Intuitive navigation that keeps visitors engaged</p>
+                </div>
+                
+                <div class="glass rounded-3xl p-8 text-center card-glow reveal">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="sparkles" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Modern Trends</h3>
+                    <p class="text-gray-400">Designs that follow the latest industry trends</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <span class="text-pink-400 font-semibold tracking-wider uppercase">What You Get</span>
+                    <h2 class="text-4xl font-black text-white mt-2 mb-8">Complete Web Design <span class="gradient-text">Solutions</span></h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="layout" class="w-6 h-6 text-violet-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-bold text-lg mb-1">Custom Layout Design</h3>
+                                <p class="text-gray-400">Unique layouts tailored to your brand and goals</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="palette" class="w-6 h-6 text-pink-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-bold text-lg mb-1">Brand Identity Integration</h3>
+                                <p class="text-gray-400">Designs that reflect your brand's unique personality</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="image" class="w-6 h-6 text-teal-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-bold text-lg mb-1">High-Quality Graphics</h3>
+                                <p class="text-gray-400">Professional icons, images, and visual elements</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="type" class="w-6 h-6 text-amber-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-bold text-lg mb-1">Typography Excellence</h3>
+                                <p class="text-gray-400">Carefully chosen fonts for readability and impact</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass rounded-3xl p-10 reveal">
+                    <h3 class="text-2xl font-bold text-white mb-8">Design Features</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-teal-400"></i>
+                            <span class="text-gray-300">Custom Mockups</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-teal-400"></i>
+                            <span class="text-gray-300">Mobile-First Design</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-teal-400"></i>
+                            <span class="text-gray-300">Brand Consistency</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-teal-400"></i>
+                            <span class="text-gray-300">Visual Hierarchy</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-teal-400"></i>
+                            <span class="text-gray-300">Animation Ready</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-teal-400"></i>
+                            <span class="text-gray-300">Figma Files</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-teal-400"></i>
+                            <span class="text-gray-300">Retina Ready</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-teal-400"></i>
+                            <span class="text-gray-300">SEO Optimized</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass rounded-3xl p-12 text-center border border-pink-500/30 reveal" style="background: linear-gradient(135deg, rgba(244,114,182,0.1), rgba(124,58,237,0.05));">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Let's Design Something <span class="gradient-text">Amazing</span></h2>
+                <p class="text-gray-400 text-xl mb-10">Get a website that stands out and converts visitors into customers</p>
+                <a href="index.html#contact" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg inline-flex items-center justify-center gap-2">
+                    Get Started Now <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Services -->
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-10 text-center reveal">Explore Other Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="landing-pages.html" class="glass rounded-3xl p-8 card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="layout" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Landing Pages</h3>
+                    <p class="text-gray-400 mb-4">High-converting landing pages for campaigns</p>
+                    <span class="text-pink-400 font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </a>
+                
+                <a href="ecommerce.html" class="glass rounded-3xl p-8 card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="shopping-bag" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">E-Commerce</h3>
+                    <p class="text-gray-400 mb-4">Full-featured online stores</p>
+                    <span class="text-pink-400 font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </a>
+                
+                <a href="services.html" class="glass rounded-3xl p-8 card-glow reveal group">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="search" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">SEO Services</h3>
+                    <p class="text-gray-400 mb-4">Rank higher and drive traffic</p>
+                    <span class="text-pink-400 font-semibold flex items-center gap-2">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                <div>
+                    <a href="index.html" class="text-3xl font-bold"><span class="gradient-text">Zubair</span><span class="text-white">SEO</span></a>
+                    <p class="text-gray-500 mt-2">SEO Expert | Web Developer | Digital Marketing Consultant</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="services.html" class="text-gray-400 hover:text-white transition-colors">SEO</a>
+                    <a href="web-development-services.html" class="text-pink-400 hover:text-white transition-colors font-semibold">Web Dev</a>
+                    <a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portfolio</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://www.linkedin.com/in/zubair-ahmed-seo-expert/" target="_blank" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-violet-500 transition-colors">
+                        <i class="fab fa-linkedin-in text-white text-xl"></i>
+                    </a>
+                    <a href="https://x.com/unlockmobilez" target="_blank" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-pink-500 transition-colors">
+                        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8">
+                © 2026 Zubair Ahmed SEO Agency. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+        const reveals = document.querySelectorAll('.reveal');
+        function revealOnScroll() { reveals.forEach(el => { const top = el.getBoundingClientRect().top; if (top < window.innerHeight - 100) el.classList.add('active'); }); }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
