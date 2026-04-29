@@ -1,0 +1,1013 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zubair Ahmed | SEO Expert Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --accent-pink: #f472b6;
+            --accent-amber: #f59e0b;
+            --accent-teal: #14b8a6;
+            --accent-cyan: #06b6d4;
+            --dark: #0f172a;
+            --darker: #0c0c1d;
+        }
+        
+        body {
+            background: var(--darker);
+            overflow-x: hidden;
+        }
+        
+        /* Animated Gradient Blobs - Canva Style */
+        @keyframes blob1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -50px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.9); }
+            75% { transform: translate(50px, 30px) scale(1.05); }
+        }
+        @keyframes blob2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-40px, 30px) scale(1.15); }
+            50% { transform: translate(30px, -40px) scale(0.95); }
+            75% { transform: translate(-20px, -30px) scale(1.1); }
+        }
+        @keyframes blob3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, 20px) scale(1.1); }
+            66% { transform: translate(-30px, -40px) scale(0.9); }
+        }
+        
+        .blob-bg::before, .blob-bg::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .blob-bg::before {
+            width: 600px; height: 600px;
+            top: -10%; left: -5%;
+            background: linear-gradient(135deg, #7c3aed, #f472b6);
+            animation: blob1 20s ease-in-out infinite;
+        }
+        .blob-bg::after {
+            width: 500px; height: 500px;
+            bottom: -10%; right: -5%;
+            background: linear-gradient(135deg, #14b8a6, #06b6d4, #7c3aed);
+            animation: blob2 25s ease-in-out infinite;
+        }
+        
+        .blob-extra {
+            position: fixed;
+            width: 400px; height: 400px;
+            top: 40%; left: 50%;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.1;
+            background: linear-gradient(135deg, #f59e0b, #f472b6);
+            animation: blob3 22s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* 3D Card Effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-20px) rotateY(10deg); }
+        }
+        
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Glowing Border - Warm */
+        .glow-border {
+            position: relative;
+        }
+        
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #7c3aed, #f472b6, #f59e0b, #14b8a6, #7c3aed);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            filter: blur(8px);
+        }
+        
+        .glow-border:hover::before {
+            opacity: 1;
+        }
+        
+        /* Gradient Text - Multi-color Warm */
+        .gradient-text {
+            background: linear-gradient(135deg, #7c3aed, #f472b6, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glassmorphism - Warm colorful borders */
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        /* Animated Grid Background - Warmer */
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        /* Button Hover Effect - Vibrant gradient with glow */
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #f472b6);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.4), 0 0 60px rgba(244, 114, 182, 0.15);
+        }
+        
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stat Counter Animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .count-up {
+            animation: countUp 0.6s ease forwards;
+        }
+        
+        /* Navbar Scroll Effect - Warmer with gradient border */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(12, 12, 29, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(90deg, #7c3aed, #f472b6, #f59e0b, #14b8a6) 1;
+        }
+        
+        /* Particle Effect */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        
+        /* 3D Perspective */
+        .perspective {
+            perspective: 1000px;
+        }
+        
+        /* Rotating Border */
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .rotate-border {
+            animation: rotateBorder 8s linear infinite;
+        }
+        
+        /* Service Card Hover - Colorful top accent */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        /* Testimonial Card */
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(244, 114, 182, 0.05));
+        }
+        
+        /* CTA Section Parallax - Warmer */
+        .parallax-bg {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Colorful card accents */
+        .card-accent-violet { border-left: 3px solid #7c3aed; }
+        .card-accent-pink { border-left: 3px solid #f472b6; }
+        .card-accent-amber { border-left: 3px solid #f59e0b; }
+        .card-accent-teal { border-left: 3px solid #14b8a6; }
+        .card-accent-cyan { border-left: 3px solid #06b6d4; }
+        .card-accent-rose { border-left: 3px solid #fb7185; }
+        
+        /* Stat unique colors */
+        .stat-violet { color: #a78bfa; }
+        .stat-pink { color: #f472b6; }
+        .stat-amber { color: #fbbf24; }
+        .stat-teal { color: #2dd4bf; }
+        
+        /* Progress bar rainbow */
+        .progress-rainbow { background: linear-gradient(90deg, #7c3aed, #f472b6, #f59e0b); }
+        .progress-pink { background: linear-gradient(90deg, #7c3aed, #f472b6); }
+        .progress-teal { background: linear-gradient(90deg, #14b8a6, #06b6d4); }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="grid-bg blob-bg">
+    <div class="blob-extra"></div>
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full z-50 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold">
+                <span class="gradient-text">Zubair</span><span class="text-white">SEO</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                <a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a>
+                <a href="web-development.html" class="text-gray-400 hover:text-white transition-colors">Web Development</a>
+                <a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portfolio</a>
+                <a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a>
+                <a href="testimonials.html" class="text-gray-400 hover:text-white transition-colors">Testimonials</a>
+                <a href="index.html#contact" class="btn-primary px-6 py-2 rounded-full text-white font-semibold">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-0 right-0 w-64 h-full bg-[#0c0c1d]/95 backdrop-blur-lg p-8 md:hidden">
+            <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="flex flex-col gap-6 mt-12">
+                <a href="index.html" class="text-white text-lg">Home</a>
+                <a href="services.html" class="text-white text-lg">Services</a>
+                <a href="web-development.html" class="text-white text-lg">Web Development</a>
+                <a href="portfolio.html" class="text-white text-lg">Portfolio</a>
+                <a href="blog.html" class="text-white text-lg">Blog</a>
+                <a href="testimonials.html" class="text-white text-lg">Testimonials</a>
+                <a href="index.html#contact" class="btn-primary px-6 py-3 rounded-full text-white font-semibold text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl float" style="animation-delay: -3s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl float" style="animation-delay: -5s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div class="mb-6 reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-gray-300">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    13+ Years of SEO Excellence
+                </span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 reveal">
+                <span class="text-white">Boost Your</span><br>
+                <span class="gradient-text">Search Rankings</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 reveal">
+                Expert Off-Page SEO services to build authority, drive organic traffic, and dominate search results
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal">
+                <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg inline-flex items-center justify-center gap-2">
+                    Start Your Project
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="#services" class="px-8 py-4 rounded-full border border-gray-700 text-white font-semibold text-lg hover:bg-white/5 transition-colors inline-flex items-center justify-center gap-2">
+                    View Services
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </a>
+            </div>
+            
+            <!-- Stats - Each with unique vibrant color -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 reveal">
+                <div class="glass rounded-2xl p-6 text-center card-3d card-accent-violet">
+                    <div class="text-4xl md:text-5xl font-black stat-violet count-up">500+</div>
+                    <div class="text-gray-400 mt-2">Projects</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center card-3d card-accent-pink">
+                    <div class="text-4xl md:text-5xl font-black stat-pink count-up">50+</div>
+                    <div class="text-gray-400 mt-2">Happy Clients</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center card-3d card-accent-amber">
+                    <div class="text-4xl md:text-5xl font-black stat-amber count-up">13+</div>
+                    <div class="text-gray-400 mt-2">Years Exp.</div>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center card-3d card-accent-teal">
+                    <div class="text-4xl md:text-5xl font-black stat-teal count-up">98%</div>
+                    <div class="text-gray-400 mt-2">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="gradient-text font-semibold tracking-wider uppercase">What I Offer</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white mt-4">SEO Services That Deliver Results</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Strategic, white-hat SEO techniques tailored to amplify your website's authority and drive consistent organic traffic</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 - Guest Post: Violet→Pink -->
+                <a href="guest-post-outreach.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 glow-border reveal h-full card-accent-violet">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center mb-6">
+                        <i data-lucide="link" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Guest Post Outreach</h3>
+                    <p class="text-gray-400">Secure placements on high-DA, niche-relevant websites to build quality backlinks and boost domain authority.</p>
+                </div>
+                </a>
+                
+                <!-- Service 2 - High-DA: Teal→Cyan -->
+                <a href="high-da-backlinks.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 glow-border reveal h-full card-accent-teal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">High-DA Backlinks</h3>
+                    <p class="text-gray-400">Ethical, white-hat techniques to build powerful backlinks that improve rankings and drive organic traffic.</p>
+                </div>
+                </a>
+                
+                <!-- Service 3 - Competitor: Green→Amber -->
+                <a href="competitor-analysis.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 glow-border reveal h-full card-accent-amber">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-amber-500 flex items-center justify-center mb-6">
+                        <i data-lucide="search" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Competitor Analysis</h3>
+                    <p class="text-gray-400">Deep dive into competitor strategies to identify opportunities and outperform them in search rankings.</p>
+                </div>
+                </a>
+                
+                <!-- Service 4 - Custom Campaigns: Orange→Rose -->
+                <a href="custom-seo-campaigns.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 glow-border reveal h-full card-accent-rose">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center mb-6">
+                        <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Custom SEO Campaigns</h3>
+                    <p class="text-gray-400">Tailored strategies designed for your unique business needs and industry requirements.</p>
+                </div>
+                </a>
+                
+                <!-- Service 5 - Analytics: Pink→Violet -->
+                <a href="analytics-reporting.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 glow-border reveal h-full card-accent-pink">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-violet-500 flex items-center justify-center mb-6">
+                        <i data-lucide="bar-chart-3" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Analytics & Reporting</h3>
+                    <p class="text-gray-400">Comprehensive reports tracking rankings, traffic growth, and ROI from all SEO activities.</p>
+                </div>
+                </a>
+                
+                <!-- Service 6 - Technical SEO: Amber→Teal -->
+                <a href="technical-seo.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 glow-border reveal h-full card-accent-cyan">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-teal-500 flex items-center justify-center mb-6">
+                        <i data-lucide="globe" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Technical SEO</h3>
+                    <p class="text-gray-400">Site optimization including site speed, mobile-friendliness, and search engine compatibility.</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal perspective">
+                    <div class="relative">
+                        <div class="w-full aspect-square rounded-3xl bg-gradient-to-br from-violet-500/20 via-pink-500/10 to-amber-500/20 p-1">
+                            <div class="w-full h-full rounded-3xl bg-gradient-to-br from-slate-800 to-[#0c0c1d] flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-pink-500/5 to-transparent"></div>
+                                <div class="text-center p-8 relative z-10">
+                                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-violet-500 via-pink-500 to-amber-500 flex items-center justify-center mb-6 float">
+                                        <i data-lucide="user" class="w-16 h-16 text-white"></i>
+                                    </div>
+                                    <h3 class="text-3xl font-bold text-white">Zubair Ahmed</h3>
+                                    <p class="gradient-text font-medium mt-2">SEO Expert & Consultant</p>
+                                    <div class="flex justify-center gap-4 mt-6">
+                                        <a href="https://www.linkedin.com/in/zubair-ahmed-seo-expert/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-violet-500 transition-colors">
+                                            <i class="fab fa-linkedin-in text-white w-5 h-5"></i>
+                                        </a>
+                                        <a href="https://x.com/unlockmobilez" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-500 transition-colors">
+                                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                        </a>
+                                        <a href="https://www.facebook.com/Zubair.dkarain/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-amber-500 transition-colors">
+                                            <i class="fab fa-facebook-f text-white w-5 h-5"></i>
+                                        </a>
+                                        <a href="mailto:contact@zubairseo.com" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition-colors">
+                                            <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating badges -->
+                        <div class="absolute -top-4 -right-4 glass px-4 py-2 rounded-xl float" style="animation-delay: -2s;">
+                            <span class="text-amber-400 font-bold">13+ Years</span>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 glass px-4 py-2 rounded-xl float" style="animation-delay: -4s;">
+                            <span class="text-teal-400 font-bold">500+ Projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal">
+                    <span class="gradient-text font-semibold tracking-wider uppercase">About Me</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-white mt-4 mb-6">Your Partner in SEO Success</h2>
+                    
+                    <p class="text-gray-400 text-lg mb-6">
+                        With over 13 years of experience in digital marketing, I specialize in helping businesses achieve sustainable growth through strategic SEO and off-page optimization. My approach combines white-hat techniques with cutting-edge strategies to deliver lasting results.
+                    </p>
+                    
+                    <p class="text-gray-400 text-lg mb-8">
+                        I've worked with clients across industries, from startups to enterprise-level companies, helping them increase website authority, improve search rankings, and drive consistent organic traffic. My focus is always on quality over quantity – building meaningful, impactful backlinks that truly move the needle.
+                    </p>
+                    
+                    <!-- Skills - Rainbow-ish progress bars -->
+                    <div class="space-y-4 mb-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Off-Page SEO</span>
+                                <span class="stat-violet">98%</span>
+                            </div>
+                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full progress-rainbow rounded-full" style="width: 98%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Link Building</span>
+                                <span class="stat-pink">95%</span>
+                            </div>
+                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full progress-pink rounded-full" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Competitor Analysis</span>
+                                <span class="stat-teal">92%</span>
+                            </div>
+                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full progress-teal rounded-full" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-white font-bold inline-flex items-center gap-2">
+                        Let's Work Together
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Web Development Section -->
+    <section id="webdev" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="gradient-text font-semibold tracking-wider uppercase">Also Available</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white mt-4">Web Development Services</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">From landing pages to complex web applications - I build fast, beautiful websites that drive results</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card glass rounded-3xl p-8 glow-border reveal h-full card-accent-violet">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center mb-6">
+                        <i data-lucide="layout" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Landing Pages</h3>
+                    <p class="text-gray-400">High-converting landing pages for campaigns, product launches, and lead generation.</p>
+                </div>
+                
+                <div class="service-card glass rounded-3xl p-8 glow-border reveal h-full card-accent-teal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center mb-6">
+                        <i data-lucide="shopping-cart" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">E-Commerce Stores</h3>
+                    <p class="text-gray-400">Full-featured online stores with payment integration and mobile-first design.</p>
+                </div>
+                
+                <div class="service-card glass rounded-3xl p-8 glow-border reveal h-full card-accent-amber">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mb-6">
+                        <i data-lucide="building" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Business Websites</h3>
+                    <p class="text-gray-400">Professional websites for portfolio, company profile, and services.</p>
+                </div>
+                
+                <div class="service-card glass rounded-3xl p-8 glow-border reveal h-full card-accent-pink">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-violet-500 flex items-center justify-center mb-6">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Responsive Design</h3>
+                    <p class="text-gray-400">Websites that look perfect on all devices - desktop, tablet, and mobile.</p>
+                </div>
+                
+                <div class="service-card glass rounded-3xl p-8 glow-border reveal h-full card-accent-rose">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-rose-500 flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Performance Optimized</h3>
+                    <p class="text-gray-400">Lightning-fast websites that rank higher and convert better.</p>
+                </div>
+                
+                <div class="service-card glass rounded-3xl p-8 glow-border reveal h-full card-accent-cyan">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-6">
+                        <i data-lucide="code" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Custom Solutions</h3>
+                    <p class="text-gray-400">Unique web applications built to your exact specifications.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 reveal">
+                <a href="web-development.html" class="btn-primary px-8 py-4 rounded-full text-white font-bold text-lg inline-flex items-center gap-2">
+                    View All Services <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="gradient-text font-semibold tracking-wider uppercase">Portfolio</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white mt-4">Success Stories</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Real results from real SEO campaigns and client success stories</p>
+                <a href="portfolio.html" class="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full border border-violet-500 text-pink-400 hover:bg-violet-500/10 transition-all font-semibold">
+                    View All Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <a href="portfolio.html" class="service-card block">
+                <div class="glass rounded-3xl overflow-hidden reveal h-full card-accent-violet">
+                    <div class="h-48 bg-gradient-to-br from-violet-600 to-pink-600 flex items-center justify-center">
+                        <i data-lucide="trending-up" class="w-20 h-20 text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm">+340%</span>
+                            <span class="text-gray-500 text-sm">Traffic Growth</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">E-commerce Store SEO</h3>
+                        <p class="text-gray-400 text-sm">Increased organic traffic by 340% through strategic guest posting and high-DA backlink building.</p>
+                    </div>
+                </div>
+                </a>
+                
+                <!-- Case Study 2 -->
+                <a href="portfolio.html" class="service-card block">
+                <div class="glass rounded-3xl overflow-hidden reveal h-full card-accent-teal">
+                    <div class="h-48 bg-gradient-to-br from-teal-600 to-cyan-600 flex items-center justify-center">
+                        <i data-lucide="target" class="w-20 h-20 text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm">#1</span>
+                            <span class="text-gray-500 text-sm">Ranking Achieved</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">SaaS Platform Ranking</h3>
+                        <p class="text-gray-400 text-sm">Took client from page 5 to #1 position for competitive keywords in 6 months.</p>
+                    </div>
+                </div>
+                </a>
+                
+                <!-- Case Study 3 -->
+                <a href="portfolio.html" class="service-card block">
+                <div class="glass rounded-3xl overflow-hidden reveal h-full card-accent-amber">
+                    <div class="h-48 bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center">
+                        <i data-lucide="link" class="w-20 h-20 text-white/50"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm">250+</span>
+                            <span class="text-gray-500 text-sm">Quality Backlinks</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Financial Services Client</h3>
+                        <p class="text-gray-400 text-sm">Built 250+ high-authority backlinks from finance niche, DA 50+ websites.</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="gradient-text font-semibold tracking-wider uppercase">Testimonials</span>
+                <h2 class="text-4xl md:text-5xl font-black text-white mt-4">What Clients Say</h2>
+                <a href="testimonials.html" class="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full border border-pink-500 text-pink-400 hover:bg-pink-500/10 transition-all font-semibold">
+                    Read All Reviews <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <a href="testimonials.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 reveal h-full card-accent-violet">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Zubair's SEO expertise transformed our online presence. Our organic traffic increased by 300% in just 4 months. Highly recommend!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center">
+                            <span class="text-white font-bold">JD</span>
+                        </div>
+                        <div>
+                            <div class="text-white font-semibold">John Doe</div>
+                            <div class="text-gray-500 text-sm">CEO, TechStartup</div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                
+                <!-- Testimonial 2 -->
+                <a href="testimonials.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 reveal h-full card-accent-teal">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"The best SEO specialist I've worked with. Professional, results-driven, and always available when needed. Our sales have never been better."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center">
+                            <span class="text-white font-bold">SM</span>
+                        </div>
+                        <div>
+                            <div class="text-white font-semibold">Sarah Miller</div>
+                            <div class="text-gray-500 text-sm">Marketing Director, E-com</div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                
+                <!-- Testimonial 3 -->
+                <a href="testimonials.html" class="service-card block">
+                <div class="glass rounded-3xl p-8 reveal h-full card-accent-amber">
+                    <div class="flex gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                        <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Outstanding work on our backlink profile. Went from DA 30 to DA 65 in 8 months. The ROI has been incredible."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                            <span class="text-white font-bold">MK</span>
+                        </div>
+                        <div>
+                            <div class="text-white font-semibold">Mike Kim</div>
+                            <div class="text-gray-500 text-sm">Founder, FinanceHub</div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 relative parallax-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <span class="gradient-text font-semibold tracking-wider uppercase">Get In Touch</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-white mt-4 mb-6">Let's Boost Your Rankings Together</h2>
+                    <p class="text-gray-400 text-lg mb-8">Ready to take your SEO to the next level? Get in touch and let's discuss how I can help you achieve your digital marketing goals.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-violet-500/20 flex items-center justify-center">
+                                <i data-lucide="mail" class="w-6 h-6 text-violet-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-500 text-sm">Email</div>
+                                <div class="text-white font-semibold">contact@zubairseo.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-pink-500/20 flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-pink-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-500 text-sm">Location</div>
+                                <div class="text-white font-semibold">United States</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/20 flex items-center justify-center">
+                                <i data-lucide="clock" class="w-6 h-6 text-amber-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-gray-500 text-sm">Response Time</div>
+                                <div class="text-white font-semibold">Within 24 Hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal">
+                    <form action="https://formspree.io/f/xykbagrn" method="POST" class="glass rounded-3xl p-8 space-y-6" style="border-top: 3px solid transparent; border-image: linear-gradient(90deg, #7c3aed, #f472b6, #f59e0b) 1;">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-gray-400 text-sm mb-2 block">Your Name</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-violet-500 transition-colors" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="text-gray-400 text-sm mb-2 block">Email</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-violet-500 transition-colors" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-gray-400 text-sm mb-2 block">Website URL</label>
+                            <input type="url" name="website" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-violet-500 transition-colors" placeholder="https://example.com">
+                        </div>
+                        <div>
+                            <label class="text-gray-400 text-sm mb-2 block">Service Needed</label>
+                            <select name="service" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-violet-500 transition-colors">
+                                <option value="" class="bg-slate-800">Select a service</option>
+                                <option value="guest-post" class="bg-slate-800">Guest Post Outreach</option>
+                                <option value="backlinks" class="bg-slate-800">High-DA Backlinks</option>
+                                <option value="competitor" class="bg-slate-800">Competitor Analysis</option>
+                                <option value="campaign" class="bg-slate-800">Custom SEO Campaign</option>
+                                <option value="other" class="bg-slate-800">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-gray-400 text-sm mb-2 block">Message</label>
+                            <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-violet-500 transition-colors resize-none" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-4 rounded-xl text-white font-bold text-lg flex items-center justify-center gap-2">
+                            Send Message
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-2xl font-bold">
+                    <span class="gradient-text">Zubair</span><span class="text-white">SEO</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portfolio</a>
+                    <a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a>
+                    <a href="testimonials.html" class="text-gray-400 hover:text-white transition-colors">Testimonials</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://www.linkedin.com/in/zubair-ahmed-seo-expert/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-violet-500 transition-colors">
+                        <i class="fab fa-linkedin-in text-white w-5 h-5"></i>
+                    </a>
+                    <a href="https://x.com/unlockmobilez" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-pink-500 transition-colors">
+                        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/Zubair.dkarain/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-500 transition-colors">
+                        <i class="fab fa-facebook-f text-white w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:contact@zubairseo.com" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-teal-500 transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5 text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-gray-500 text-sm">
+                &copy; 2026 Zubair Ahmed SEO Agency. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('open');
+        }
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        function revealOnScroll() {
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    const menu = document.querySelector('.mobile-menu');
+                    if (menu.classList.contains('open')) {
+                        menu.classList.remove('open');
+                    }
+                }
+            });
+        });
+        
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.count-up');
+            counters.forEach(counter => {
+                counter.style.opacity = '1';
+            });
+        }
+        
+        setTimeout(animateCounters, 500);
+        
+        // Formspree Form Handling
+        const form = document.querySelector('form[action="https://formspree.io/f/xykbagrn"]');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const button = form.querySelector('button[type="submit"]');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span class="animate-pulse">Sending...</span>';
+                button.disabled = true;
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (response.ok) {
+                        button.innerHTML = '<span class="text-green-400">✓ Message Sent!</span>';
+                        form.reset();
+                        setTimeout(() => {
+                            button.innerHTML = originalText;
+                            button.disabled = false;
+                        }, 3000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    button.innerHTML = '<span class="text-red-400">Error! Try Again</span>';
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                    }, 3000);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
